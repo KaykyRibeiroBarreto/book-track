@@ -1,0 +1,54 @@
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.emptyState {
+  animation: fadeInUp 0.8s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1.5rem;
+  padding: 4rem 2rem;
+  height: calc(70vh - 20px);
+}
+
+.title{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #9FCC2E; 
+}
+.text{
+  font-family: 'Franklin Gothic Medium', sans-serif;
+  font-size: 1rem;
+  color: #0a1808;
+  margin-top: 0.5rem;
+}
+
+.addButton {
+  font-family: 'Montserrat', sans-serif;
+  padding: 1rem;
+  background-color:#0E402D;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 1rem;
+}
+
+.addButton:hover {
+  background-color: #9FCC2E;
+  color: #072b10;
+  transition: 0.3s;
+  transform: scale(1.05);
+}

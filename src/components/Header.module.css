@@ -7,7 +7,7 @@
     color: #fff;
 }
 
-.header h1 {
+.title {
     font-family: 'Montserrat', sans-serif;
     cursor: pointer;
     letter-spacing: 2px;
@@ -31,7 +31,7 @@
     transform: scale(1.05);
 }
 
-.header h1:hover {
+.title:hover {
     color: #9FCC2E;
     transition: 0.3s;
     transform: scale(1.1);
