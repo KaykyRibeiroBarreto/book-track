@@ -1,5 +1,6 @@
 import React from 'react'
 
+<<<<<<< HEAD
 const AddBookCard = ( {adicionarLivro, fecharFormulario}) => {
     const [form, setForm] = React.useState({
         titulo: '',
@@ -52,9 +53,22 @@ fecharFormulario()
             <button type="submit">Salvar</button>
             <button type="button" onClick={fecharFormulario}>Cancelar</button>
             </div>
+=======
+const AddBookCard = () => {
+  return (
+    <div>
+      <form>
+        <label>Enter your name:
+            <input type="text" />
+        </label>
+>>>>>>> 6720c5bf2691c4e14087d2e85941708d51a1e1a1
       </form>
     </div>
   )
 }
 
+<<<<<<< HEAD
 export default AddBookCard
+=======
+export default AddBookCard
+>>>>>>> 6720c5bf2691c4e14087d2e85941708d51a1e1a1
