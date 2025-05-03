@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './EmptyState.module.css';
 import emptyBook from '../assets/empty-book.png';
 
-const EmptyState = ({ openForm }) => {
+const EmptyState = ({ abrirFormulario }) => {
   return (
     <div className={styles.emptyState}>
 
@@ -17,9 +17,10 @@ const EmptyState = ({ openForm }) => {
 
       <button 
         className={styles.addButton} 
-        onClick={openForm}
+        onClick={abrirFormulario}
       >
-        Adicionar Livro</button>
+        Adicionar Livro
+        </button>
     </div>
   )
 }

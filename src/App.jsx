@@ -3,6 +3,7 @@ import './index.css'
 import Header from './components/Header'
 import EmptyState from './components/EmptyState'
 import AddBookCard from './components/AddBookCard'
+import BooksGrid from './components/BookGrid'
 
 function App() {
   // Estado para armazenar os livros
@@ -15,7 +16,7 @@ function App() {
   useEffect(() => {
     const livrosSalvos = localStorage.getItem('livros')
     if (livrosSalvos) {
-      setIsFormVisible(JSON.parse(livrosSalvos))
+      setLivros(JSON.parse(livrosSalvos))
     }
   }, [])
   

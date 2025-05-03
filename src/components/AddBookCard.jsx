@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import styles from './AddBookCard.module.css';
 
 const AddBookCard = ({ adicionarLivro, fecharFormulario }) => {
   const [form, setForm] = useState({
@@ -40,16 +41,17 @@ const AddBookCard = ({ adicionarLivro, fecharFormulario }) => {
   };
 
   return (
-    <div>
+    <div className={styles.container}>
       <h2>Adicionar Livro</h2>
-      <form onSubmit={handleSubmit}>
+
+      <form onSubmit={handleSubmit} className={styles.form}>
         <input name="titulo" placeholder="Título" value={form.titulo} onChange={handleChange} />
         <input name="genero" placeholder="Gênero" value={form.genero} onChange={handleChange} />
         <input name="estrelas" type="number" min="1" max="5" value={form.estrelas} onChange={handleChange} />
         <input name="totalPaginas" placeholder="Total de páginas" type="number" value={form.totalPaginas} onChange={handleChange} />
         <input name="paginasLidas" placeholder="Páginas lidas" type="number" value={form.paginasLidas} onChange={handleChange} />
 
-        <div>
+        <div className={styles.Buttons}>
           <button type="submit">Salvar</button>
           <button type="button" onClick={fecharFormulario}>Cancelar</button>
         </div>

@@ -6,6 +6,7 @@
     box-shadow: 0 0 12px rgba(0, 255, 128, 0.2);
     margin-bottom: 1rem;
     transition: transform 0.2s ease;
+    max-width: 100%;
   }
   
   .card:hover {
