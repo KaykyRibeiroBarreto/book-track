@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000;
+    padding: 1rem 2rem;
+    color: #fff;
+}
+
+.title {
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.addButton {
+    font-family: 'Montserrat', sans-serif;
+    padding: 1rem;
+    background-color:#0E402D;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.addButton:hover {
+    background-color: #9FCC2E;
+    color: #000;
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+
+.title:hover {
+    color: #9FCC2E;
+    transition: 0.3s;
+    transform: scale(1.1);
+}
