@@ -1,5 +1,8 @@
+import e from 'express';
 import express from 'express';
 const app = express();
+app.use(express.json()); // Middleware para parsear JSON
+
 
 // Banco de dados em memória
 const livros = [
@@ -28,5 +31,12 @@ app.get('/livros/:id', (req, res) => {
     res.status(200).json(livro);
 });
 
+app.post('/livros', (req, res) => {
+    livros.push(req.body);
+    res.status(201).send('Livro adicionado com sucesso');
+})
+
 // Inicia o servidor
 app.listen(3000, () => console.log('Servidor rodando na porta 3000'));
+
+export default app; 
