@@ -1,5 +1,16 @@
-import e from 'express';
 import express from 'express';
+import connectInDatabase from './config/dbConnect.js';
+
+const Connection = await connectInDatabase();
+
+Connection.on("error", (erro) => {
+    console.error("erro de conexão", erro)
+});
+
+Connection.once("open", () => {
+    console.log("Conexão com o banco feita com sucesso")
+})
+
 const app = express();
 app.use(express.json()); // Middleware para parsear JSON
 
@@ -57,3 +68,4 @@ app.delete('/livros/:id', (req, res) => {
 app.listen(3000, () => console.log('Servidor rodando na porta 3000'));
 
 export default app; 
+
