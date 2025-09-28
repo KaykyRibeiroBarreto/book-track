@@ -1,5 +1,7 @@
 import express from 'express';
 import connectInDatabase from './config/dbConnect.js';
+import livro from './models/Livro.js';
+import "dotenv/config";
 
 const Connection = await connectInDatabase();
 
@@ -15,28 +17,20 @@ const app = express();
 app.use(express.json()); // Middleware para parsear JSON
 
 
-// Banco de dados em memória
-const livros = [
-    { id: 1, nome: 'O Senhor dos Anéis', autor: 'J.R.R. Tolkien', ano: 1954 },
-    { id: 2, nome: '1984', autor: 'George Orwell', ano: 1949 },
-    { id: 3, nome: 'O Hobbit', autor: 'J.R.R. Tolkien', ano: 1937 }
-];
-
-
 // Rotas
 app.get('/', (req, res) => {
     res.send('Hello World!');
 });
 
-app.get('/livros/:id', (req, res) => {
+app.get('/livros/:id', async (req, res) => {
     const id = parseInt(req.params.id);
-    const livro = livros.find(l => l.id === id);
+    const listaLivros = await livro.find(l => l.id === id); // Usando o método find do mongoose para buscar o livro pelo id no banco de dados
 
-    if (!livro) {
+    if (!listaLivros) {
         return res.status(404).json({ erro: 'Livro não encontrado' });
     }
 
-    res.status(200).json(livro);
+    res.status(200).json(listaLivros);
 });
 
 
