@@ -1,65 +1,9 @@
-import express from 'express';
-import connectInDatabase from './config/dbConnect.js';
-import livro from './models/Livro.js';
-import "dotenv/config";
-
-const Connection = await connectInDatabase();
-
-Connection.on("error", (erro) => {
-    console.error("erro de conexão", erro)
-});
-
-Connection.once("open", () => {
-    console.log("Conexão com o banco feita com sucesso")
-})
+import express from "express";
+import routes from "./routes/livrosRoutes.js";
 
 const app = express();
-app.use(express.json()); // Middleware para parsear JSON
+app.use(express.json());
+routes(app);
 
-
-// Rotas
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
-
-app.get('/livros/:id', async (req, res) => {
-    const id = parseInt(req.params.id);
-    const listaLivros = await livro.find(l => l.id === id); // Usando o método find do mongoose para buscar o livro pelo id no banco de dados
-
-    if (!listaLivros) {
-        return res.status(404).json({ erro: 'Livro não encontrado' });
-    }
-
-    res.status(200).json(listaLivros);
-});
-
-
-app.post('/livros', (req, res) => {
-    livros.push(req.body);
-    res.status(201).send('Livro adicionado com sucesso');
-})
-
-//rota PUT
-app.put('/livros/:id', (req, res) => {
-    const id = parseInt(req.params.id); // pega o id da URL e converte para número
-    const index = livros.findIndex(l => l.id === id) // Procura o índice do livro no array pelo id
-
-    if (index === -1) {
-        return res.status(404).json({ erro: 'Livro não encontrado'})
-    }
-
-    livros[index] = {...livros[index], ...req.body}
-    res.status(200).json(livros[index]);
-})
-
-app.delete('/livros/:id', (req, res) => {
-    const id = parseInt(req.params.id);
-    livros.splice(livros.findIndex(l => l.id === id), 1); // Remove o livro do array
-    res.status(200).json({ mensagem: 'Livro removido com sucesso' });
-})
-
-// Inicia o servidor
-app.listen(3000, () => console.log('Servidor rodando na porta 3000'));
-
-export default app; 
+export default app;
 
